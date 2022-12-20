@@ -7,11 +7,12 @@ group by nombre,apellido having count(*)>0 order by count(*) desc;
 --ej2
 --falta sumar las cantidades 
 
-/*Select cliente.nombre, cliente.apellido, cliente.nro_cedula, (prod.precio * fact_det.cantidad) from 
+/*Select cliente.nombre, cliente.apellido, cliente.nro_cedula, sum(prod.precio * fact_det.cantidad) as gasto from 
 ( (cliente inner join factura as fact on cliente.id=fact.cliente_id) 
  inner join factura_detalle as fact_det on fact.id=fact_det.factura_id)
 inner join producto as prod on fact_det.producto_id= prod.id
-group by cliente.nombre,cliente.apellido,cliente.nro_cedula, (prod.precio * fact_det.cantidad);*/
+group by cliente.nombre,cliente.apellido,cliente.nro_cedula, (prod.precio * fact_det.cantidad)
+order by gasto desc;*/
 
 
 --ej3
